@@ -1,0 +1,41 @@
+MakeupBundle\Entity\Comment:
+    type: entity
+    table: comments
+    indexes:
+        fk_comments_users:
+            columns:
+                - user_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        comment:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+    manyToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    oneToMany:
+        commentProduct:
+            targetEntity: Product
+            mappedBy: comment
+            cascade: ["persist"]
+
+    lifecycleCallbacks: {  }

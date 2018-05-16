@@ -1,0 +1,31 @@
+MakeupBundle\Entity\Treatment:
+    type: entity
+    table: treatments
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+    oneToMany:
+        treatmentProductTreatment:
+            targetEntity: ProductTreatment
+            mappedBy: treatment
+            cascade: ["persist"]
+    lifecycleCallbacks: {  }

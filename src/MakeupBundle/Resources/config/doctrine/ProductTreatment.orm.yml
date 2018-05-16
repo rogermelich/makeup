@@ -1,0 +1,41 @@
+MakeupBundle\Entity\ProductTreatment:
+    type: entity
+    table: product_treatment
+    indexes:
+        fk_comments_products:
+            columns:
+                - product_id
+        fk_comments_treatments:
+            columns:
+                - treatment_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        product:
+            targetEntity: Product
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: productTreatment
+            joinColumns:
+                product_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        treatment:
+            targetEntity: Treatment
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: treatmentProductTreatment
+            joinColumns:
+                treatment_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

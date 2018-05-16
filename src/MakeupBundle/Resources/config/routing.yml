@@ -1,0 +1,15 @@
+makeup_homepage:
+    path:     /
+    defaults: { _controller: MakeupBundle:Default:index }
+
+makeup_products:
+    path:     /products
+    defaults: { _controller: MakeupBundle:Default:products }
+
+makeup_comments:
+    path:     /comments
+    defaults: { _controller: MakeupBundle:Default:comments}
+
+makeup_treatments:
+    path:     /treatments
+    defaults: { _controller: MakeupBundle:Default:treatments }
