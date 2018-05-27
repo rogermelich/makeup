@@ -95,5 +95,9 @@ class Treatment
     {
         return $this->description;
     }
+    
+    public function __toString() {
+        return $this->name;
+    }
 }
 

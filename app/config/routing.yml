@@ -1,7 +1,11 @@
 makeup:
     resource: "@MakeupBundle/Resources/config/routing.yml"
     prefix:   /
-
+    
+easy_admin_bundle:
+    resource:   "@EasyAdminBundle/Controller/AdminController.php"
+    type:       annotation
+    prefix:      /admin
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

@@ -5,8 +5,8 @@ namespace MakeupBundle\Entity;
 /**
  * ProductTreatment
  */
-class ProductTreatment
-{
+class ProductTreatment {
+
     /**
      * @var integer
      */
@@ -22,14 +22,12 @@ class ProductTreatment
      */
     private $treatment;
 
-
     /**
      * Get id
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -40,8 +38,7 @@ class ProductTreatment
      *
      * @return ProductTreatment
      */
-    public function setProduct(\MakeupBundle\Entity\Products $product = null)
-    {
+    public function setProduct(\MakeupBundle\Entity\Products $product = null) {
         $this->product = $product;
 
         return $this;
@@ -52,8 +49,7 @@ class ProductTreatment
      *
      * @return \MakeupBundle\Entity\Products
      */
-    public function getProduct()
-    {
+    public function getProduct() {
         return $this->product;
     }
 
@@ -64,8 +60,7 @@ class ProductTreatment
      *
      * @return ProductTreatment
      */
-    public function setTreatment(\MakeupBundle\Entity\Treatments $treatment = null)
-    {
+    public function setTreatment(\MakeupBundle\Entity\Treatments $treatment = null) {
         $this->treatment = $treatment;
 
         return $this;
@@ -76,9 +71,12 @@ class ProductTreatment
      *
      * @return \MakeupBundle\Entity\Treatments
      */
-    public function getTreatment()
-    {
+    public function getTreatment() {
         return $this->treatment;
     }
-}
 
+
+    public function __toString() {
+        return [$this->product, $this->treatment] ;
+    }
+}

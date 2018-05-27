@@ -153,5 +153,9 @@ class Product
     {
         return $this->comment;
     }
+    
+    public function __toString() {
+        return $this->name;
+    }
 }
 

@@ -8,30 +8,26 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 class DefaultController extends Controller {
 
-    public function indexAction() {
-        return $this->render('MakeupBundle:Default:index.html.twig');
-    }
-
-    public function productsAction() {
+    public function indexAction(Request $request) {
         $em = $this->getDoctrine()->getEntityManager();
         $product_repos = $em->getRepository("MakeupBundle:Product");
-        $products = $product_repos->findAll();
+        #$products = $product_repos->findAll();
+        
+        $products = "SELECT e FROM MakeupBundle:Product e";
+        
+        $query = $em->createQuery($products);
+        
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+                $query,
+                $request->query->getInt('page', 1),
+                2
+        );
 
-        foreach ($products as $product) {
-            echo $product->getName() . "<br>";
-            echo $product->getDescription() . "<br>";
-            //echo $product->getComment()->getName() . "<br>";
-
-            $treatments = $product->getProductTreatment();
-            foreach ($treatments as $treatment) {
-                echo $treatment->getTreatment()->getName() . "<br>";
-            }
-
-            echo "<hr>";
-        }
-        die();
-
-        //return $this->render('MakeupBundle:Default:index.html.twig');
+        return $this->render(
+                        'MakeupBundle:Default:index.html.twig', [
+                    'pagination' => $pagination
+        ]);
     }
 
     public function CommentsAction() {
@@ -72,6 +68,11 @@ class DefaultController extends Controller {
         }
         die();
         //return $this->render('MakeupBundle:Default:index.html.twig');
+    }
+
+    public function langAction(Request $request) {
+
+        return $this->redirectToRoute("makeup_homepage");
     }
 
 }

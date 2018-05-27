@@ -1,11 +1,12 @@
 <?php
 
 namespace MakeupBundle\Entity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var integer

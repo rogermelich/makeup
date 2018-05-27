@@ -1,10 +1,20 @@
+login:
+    path:     /login
+    defaults: { _controller: MakeupBundle:User:login }
+    
+login_check:
+    path:     /login_check
+    
+logout:
+    path:     /logout
+    
+makeup_lang:
+    path: /lang/{_locale}
+    defaults: { _controller: MakeupBundle:Default:lang }
+
 makeup_homepage:
     path:     /
     defaults: { _controller: MakeupBundle:Default:index }
-
-makeup_products:
-    path:     /products
-    defaults: { _controller: MakeupBundle:Default:products }
 
 makeup_comments:
     path:     /comments
