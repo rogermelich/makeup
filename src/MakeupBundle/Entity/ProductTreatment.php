@@ -76,6 +76,9 @@ class ProductTreatment {
     }
     
     public function __toString() {
-        return  $this->getProduct()->getName();
+        $prod = $this->getProduct()->getName();
+        $treat = $this->getTreatment()->getName();
+
+        return array($prod, $treat);
     }
 }
