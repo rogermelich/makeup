@@ -85,7 +85,7 @@ easy_admin:
                 fields:
                     - 'name'
                     - 'description'
-                    - { property: 'image', type: 'file', base_path: '/images/' }
+                    - { property: 'image', type: 'file', label: 'File' }
                     - 'comment'
         Comment:       
             class: MakeupBundle\Entity\Comment
@@ -100,15 +100,15 @@ easy_admin:
                     - 'name'
                     - 'surname'
                     - 'email'
-                    - { property: 'imagen', type: 'image', base_path: '/bundles/images/user' }
-#            form:
-#                fields:
-#                    - 'id'
-#                    - 'role'
-#                    - 'name'
-#                    - 'surname'
-#                    - 'email'
-#                    - { property: 'imagen', type: 'file', base_path: '/bundles/images/user/' }
+                    - { property: 'imagen', type: 'image', base_path: '/bundles/images/user/' }
+            form:
+                fields:
+                    - 'id'
+                    - 'role'
+                    - 'name'
+                    - 'surname'
+                    - 'email'
+                    - { property: 'imagen', type: 'file', label: 'File' }
         
 knp_paginator:
     page_range: 5                      # rango por defecto de paginas en los controles del paginador
