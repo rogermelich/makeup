@@ -1,0 +1,38 @@
+{% extends "MakeupBundle::layout.html.twig"%}
+{% block body %}
+
+    <section class="main-content">
+        <div class="padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="list-posts">
+                            {% for treatment in pagination %}
+                                <article class="post type-post media">
+                                    <div class="entry-content media-body">
+                                        <h2 class="entry-title"><a>{{ treatment.name }}</a></h2><!-- /.entry-title -->
+                                        <p>
+                                            {{ treatment.description }} 
+                                        </p>
+                                        <br>
+                                        <h4>Productes que contenen el tractament</h4>
+                                        <p>
+                                            {% for pt in treatment.treatmentProductTreatment %}
+                                                {{pt.product.name}}
+                                            {% endfor %}
+                                        </p>
+                                    </div><!-- /.entry-content -->
+                                </article><!-- /.post -->
+                                <div class="clearfix"></div>
+                            {% endfor %}
+                        </div>
+
+                        <div>
+                            {{ knp_pagination_render(pagination) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

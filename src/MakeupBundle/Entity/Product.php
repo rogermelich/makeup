@@ -5,8 +5,8 @@ namespace MakeupBundle\Entity;
 /**
  * Product
  */
-class Product
-{
+class Product {
+
     /**
      * @var integer
      */
@@ -23,7 +23,7 @@ class Product
     private $description;
 
     /**
-     * @var string
+     * @var image
      */
     private $image;
 
@@ -31,30 +31,27 @@ class Product
      * @var \MakeupBundle\Entity\Comments
      */
     private $comment;
-    
     protected $productTreatment;
 
-    public function _construct(){
+    public function _construct() {
         $this->productTreatment = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
-    public function addProductTreatment(\MakeupBundle\Entity\Treatment $treatment){
+
+    public function addProductTreatment(\MakeupBundle\Entity\Treatment $treatment) {
         $this->productTreatment[] = $treatment;
         return $this;
     }
-    
-    public function getProductTreatment(){
+
+    public function getProductTreatment() {
         return $this->productTreatment;
     }
-
 
     /**
      * Get id
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -65,8 +62,7 @@ class Product
      *
      * @return Product
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
 
         return $this;
@@ -77,8 +73,7 @@ class Product
      *
      * @return string
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -89,8 +84,7 @@ class Product
      *
      * @return Product
      */
-    public function setDescription($description)
-    {
+    public function setDescription($description) {
         $this->description = $description;
 
         return $this;
@@ -101,8 +95,7 @@ class Product
      *
      * @return string
      */
-    public function getDescription()
-    {
+    public function getDescription() {
         return $this->description;
     }
 
@@ -113,8 +106,7 @@ class Product
      *
      * @return Product
      */
-    public function setImage($image)
-    {
+    public function setImage($image) {
         $this->image = $image;
 
         return $this;
@@ -125,8 +117,7 @@ class Product
      *
      * @return string
      */
-    public function getImage()
-    {
+    public function getImage() {
         return $this->image;
     }
 
@@ -137,8 +128,7 @@ class Product
      *
      * @return Product
      */
-    public function setComment(\MakeupBundle\Entity\Comment $comment = null)
-    {
+    public function setComment(\MakeupBundle\Entity\Comment $comment = null) {
         $this->comment = $comment;
 
         return $this;
@@ -149,13 +139,11 @@ class Product
      *
      * @return \MakeupBundle\Entity\Comments
      */
-    public function getComment()
-    {
+    public function getComment() {
         return $this->comment;
     }
-    
+
     public function __toString() {
         return $this->name;
     }
 }
-

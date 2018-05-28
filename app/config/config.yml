@@ -70,11 +70,45 @@ swiftmailer:
     spool:     { type: memory }
 
 easy_admin:
+    site_name: 'Makeup Admin'
     entities:
-        - MakeupBundle\Entity\Product
-        - MakeupBundle\Entity\Comment
-        - MakeupBundle\Entity\Treatment
-        - MakeupBundle\Entity\User
+        Product:
+            class: MakeupBundle\Entity\Product
+            list:
+                fields:
+                    - 'id'
+                    - 'name'
+                    - 'description'
+                    - { property: 'image', type: 'image', base_path: '/images/' }
+                    - 'comment'
+            form:
+                fields:
+                    - 'name'
+                    - 'description'
+                    - { property: 'image', type: 'file', base_path: '/images/' }
+                    - 'comment'
+        Comment:       
+            class: MakeupBundle\Entity\Comment
+        Treatment:
+            class: MakeupBundle\Entity\Treatment
+        User:
+            class: MakeupBundle\Entity\User
+            list:
+                fields:
+                    - 'id'
+                    - 'role'
+                    - 'name'
+                    - 'surname'
+                    - 'email'
+                    - { property: 'imagen', type: 'image', base_path: '/bundles/images/user' }
+#            form:
+#                fields:
+#                    - 'id'
+#                    - 'role'
+#                    - 'name'
+#                    - 'surname'
+#                    - 'email'
+#                    - { property: 'imagen', type: 'file', base_path: '/bundles/images/user/' }
         
 knp_paginator:
     page_range: 5                      # rango por defecto de paginas en los controles del paginador

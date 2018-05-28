@@ -213,5 +213,10 @@ class User implements UserInterface
     {
         return $this->imagen;
     }
+    
+    public function __toString() {
+        return $this->name;
+    }
+        
 }
 

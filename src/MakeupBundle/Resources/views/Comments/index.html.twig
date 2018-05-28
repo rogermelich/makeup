@@ -1,0 +1,41 @@
+{% extends "MakeupBundle::layout.html.twig"%}
+{% block body %}
+
+    <section class="main-content">
+        <div class="padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="list-posts">
+                            {% for comment in pagination %}
+                                <article class="post type-post media">
+                                    <div class="entry-content media-body">
+                                        <h2 class="entry-title"><a>Usuari que ha creat el commentari: {{ comment.user.name }} {{ comment.user.surname }}</a></h2><!-- /.entry-title -->
+                                        <h4>Comentari</h4>
+                                        <p>
+                                            {{ comment.comment }} 
+                                        </p>
+                                        <br>
+                                        <h4>Producte Comentat</h4>
+                                        <p>
+                                            {% for pt in comment.commentProduct %}
+                                                <ul>
+                                                    <li>{{ pt.name }}</li>
+                                                </ul>
+                                            {% endfor %}
+                                        </p>
+                                    </div><!-- /.entry-content -->
+                                </article><!-- /.post -->
+                                <div class="clearfix"></div>
+                            {% endfor %}
+                        </div>
+
+                        <div>
+                            {{ knp_pagination_render(pagination) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

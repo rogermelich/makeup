@@ -22,7 +22,7 @@ class ProductTreatment {
      */
     private $treatment;
 
-    /**
+        /**
      * Get id
      *
      * @return integer
@@ -74,9 +74,8 @@ class ProductTreatment {
     public function getTreatment() {
         return $this->treatment;
     }
-
-
+    
     public function __toString() {
-        return [$this->product, $this->treatment] ;
+        return  $this->getProduct()->getName();
     }
 }

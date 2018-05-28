@@ -25,7 +25,7 @@ class Comment
     protected $commentProduct;
 
     public function __construct() {
-        $this->commentProduct = new ArrayCollecion();
+        $this->commentProduct = new  \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function addCommentProduct(\MakeupBundle\Entity\Product $product) {
